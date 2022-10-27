@@ -6,7 +6,7 @@ let stockProductos = [
 		cantidad: 1,
 		desc: "Some quick example text to build on the card title and make up the bulk of the card's content.",
 		precio: 1200,
-		img: "../img/img1.jpg",
+		img: "./img/img1.jpg",
 	},
 	{
 		id: 2,
@@ -15,7 +15,7 @@ let stockProductos = [
 		cantidad: 1,
 		desc: "Some quick example text to build on the card title and make up the bulk of the card's content.",
 		precio: 1100,
-		img: "../img/img2.jpg",
+		img: "./img/img2.jpg",
 	},
 	{
 		id: 3,
@@ -24,7 +24,7 @@ let stockProductos = [
 		cantidad: 1,
 		desc: "Some quick example text to build on the card title and make up the bulk of the card's content.",
 		precio: 1200,
-		img: "../img/img3.jpg",
+		img: "./img/img3.jpg",
 	},
 	{
 		id: 4,
@@ -33,6 +33,6 @@ let stockProductos = [
 		cantidad: 1,
 		desc: "Some quick example text to build on the card title and make up the bulk of the card's content.",
 		precio: 500,
-		img: "../img/img5.jpg",
+		img: "./img/img5.jpg",
 	},
 ];
