@@ -39,6 +39,15 @@ header {
     padding: 10px 20px;
     transition: all .3s;
 }
+
+#boton-carrito i {
+    margin-right: 5px;
+}
+
+#boton-carrito span {
+    font-size: 2rem;
+}
+
 #boton-carrito:hover {
     cursor: pointer;
     color: rgb(43, 70, 150);

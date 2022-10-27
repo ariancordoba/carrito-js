@@ -16,6 +16,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
 botonVaciar.addEventListener("click", () => {
 	carrito.length = 0;
+	Swal.fire({
+		position: "center",
+		icon: "error",
+		title: "Carrito vacio",
+		showConfirmButton: false,
+		timer: 1500,
+		timerProgressBar: 3000,
+		allowOutsideClick: true,
+		allowEscapeKey: true,
+		allowEnterKey: true,
+		stopKeydownPropagation: false,
+	});
 	actualizarCarrito();
 });
 
@@ -58,11 +70,16 @@ const agregarAlCarrito = (cardId) => {
 		carrito.push(item);
 	}
 	Swal.fire({
-		position: "bottom-end",
+		position: "center",
 		icon: "success",
 		title: "Producto agregado al carrito",
 		showConfirmButton: false,
-		timer: 5000,
+		timer: 2000,
+		timerProgressBar: 3000,
+		allowOutsideClick: true,
+		allowEscapeKey: true,
+		allowEnterKey: true,
+		stopKeydownPropagation: false,
 	});
 	actualizarCarrito();
 };
