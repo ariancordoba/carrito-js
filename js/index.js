@@ -57,6 +57,13 @@ const agregarAlCarrito = (cardId) => {
 		const item = stockProductos.find((card) => card.id === cardId);
 		carrito.push(item);
 	}
+	Swal.fire({
+		position: "bottom-end",
+		icon: "success",
+		title: "Producto agregado al carrito",
+		showConfirmButton: false,
+		timer: 5000,
+	});
 	actualizarCarrito();
 };
 
