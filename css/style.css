@@ -78,7 +78,7 @@ header {
 .modal-carrito {
     position: relative;
     background-color: white;
-    min-width: 500px;
+    min-width: 600px;
     padding: 20px;
     margin-top: -100%;
     transition: all .5s;
@@ -109,7 +109,7 @@ header {
 }
 .modal-carrito .precioProducto {
     padding-top: 10px;
-    
+
 }
 
 .card {
@@ -229,18 +229,38 @@ header {
         grid-template-columns: 1fr;
     }
 
+    .modal-carrito {
+        min-width: 300px;
+    }
+
+    .productoEnCarrito {
+        border-top: 5px solid lightblue;
+        border-left: 0px;
+        border-radius: 3px;
+        margin: 10px 0;
+        padding: 15px 10px;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        justify-content: flex-start;
+    }
+
+    .productoEnCarrito p {
+    margin: 5px 0px;
+    }
+
     .titulo {
         font-size: 30px;
     }
 }
 
-@media (max-width: 400px)  {
+@media (max-width: 450px)  {
     #contenedor-productos {
         max-width: 300px;
         grid-template-columns: 1fr;
     }
 
     .titulo {
-        font-size: 30px;
+        font-size: 25px;
     }
 }
