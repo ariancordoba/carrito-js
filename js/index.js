@@ -1,3 +1,5 @@
+import cards from "/js/stock.json" assert { type: "json" };
+
 const contenedorProductos = document.getElementById("contenedor-productos");
 
 const contenedorCarrito = document.getElementById("carrito-contenedor");
@@ -31,7 +33,7 @@ botonVaciar.addEventListener("click", () => {
 	actualizarCarrito();
 });
 
-stockProductos.forEach((card) => {
+cards.forEach((card) => {
 	const div = document.createElement("div");
 	div.classList.add("card");
 	div.innerHTML = `
