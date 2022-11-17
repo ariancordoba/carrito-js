@@ -1,5 +1,3 @@
-import cards from "/js/stock.json" assert { type: "json" };
-
 const contenedorProductos = document.getElementById("contenedor-productos");
 
 const contenedorCarrito = document.getElementById("carrito-contenedor");
@@ -33,30 +31,38 @@ botonVaciar.addEventListener("click", () => {
 	actualizarCarrito();
 });
 
-cards.forEach((card) => {
-	const div = document.createElement("div");
-	div.classList.add("card");
-	div.innerHTML = `
-    <div class="card-content">
-    <img src=${card.img} alt="">
-        <div class="card-body">
-            <h3 class="card-title">$ ${card.precio}</h3>
-            <h3>${card.nombre}</h3>
-            <p class="card-text">${card.desc}</p>
-            <a href="#" id="agregar${card.id}" class="boton btn-agregar">Agregar <i class="fas      fa-shopping-cart"></i></a>
-            <a href="#" class="boton btn-detalles">Detalles</a>
-        </div>
-    </div>
-    `;
+// generar el DOM de todos los productos
 
-	contenedorProductos.appendChild(div);
+fetch("./stock.json")
+	.then((resp) => resp.json())
+	.then((data) => {
+		stock = data;
 
-	const boton = document.getElementById(`agregar${card.id}`);
+		data.forEach((card) => {
+			const div = document.createElement("div");
+			div.classList.add("card");
+			div.innerHTML = `
+						<div class="card-content">
+						<img src=${card.img} alt="">
+							<div class="card-body">
+								<h3 class="card-title">$ ${card.precio}</h3>
+								<h3>${card.nombre}</h3>
+								<p class="card-text">${card.desc}</p>
+								<a href="#" id="agregar${card.id}" class="boton btn-agregar">Agregar <i class="fas      fa-shopping-cart"></i></a>
+								<a href="#" class="boton btn-detalles">Detalles</a>
+							</div>
+						</div>
+						`;
 
-	boton.addEventListener("click", () => {
-		agregarAlCarrito(card.id);
+			contenedorProductos.appendChild(div);
+
+			const boton = document.getElementById(`agregar${card.id}`);
+
+			boton.addEventListener("click", () => {
+				agregarAlCarrito(card.id);
+			});
+		});
 	});
-});
 
 const agregarAlCarrito = (cardId) => {
 	const existe = carrito.some((card) => card.id === cardId);
