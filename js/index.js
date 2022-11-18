@@ -33,7 +33,7 @@ botonVaciar.addEventListener("click", () => {
 
 // generar el DOM de todos los productos
 
-fetch("./stock.json")
+fetch("../js/stock.json")
 	.then((resp) => resp.json())
 	.then((data) => {
 		stock = data;
