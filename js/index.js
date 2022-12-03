@@ -5,7 +5,9 @@ const contenedorCarrito = document.getElementById("carrito-contenedor");
 const botonVaciar = document.getElementById("vaciar-carrito");
 const contadorCarrito = document.getElementById("contadorCarrito");
 const precioTotal = document.getElementById("precioTotal");
-let carrito = [];
+const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+let stock = [];
 
 document.addEventListener("DOMContentLoaded", () => {
 	if (localStorage.getItem("carrito")) {
@@ -31,7 +33,7 @@ botonVaciar.addEventListener("click", () => {
 	actualizarCarrito();
 });
 
-// generar el DOM de todos los productos
+// GENERAR EL DOM DE LOS PRODUCTS
 
 fetch("./js/stock.json")
 	.then((resp) => resp.json())
@@ -68,13 +70,9 @@ const agregarAlCarrito = (cardId) => {
 	const existe = carrito.some((card) => card.id === cardId);
 
 	if (existe) {
-		const card = carrito.map((card) => {
-			if (card.id === cardId) {
-				card.cantidad++;
-			}
-		});
+		existe.cantidad += 1;
 	} else {
-		const item = stockProductos.find((card) => card.id === cardId);
+		const item = stock.find((card) => card.id === cardId);
 		carrito.push(item);
 	}
 	Swal.fire({
